@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Ricerca Personale{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 15px;
+}
+</style>
+<div>
+    <form method="post">
+    <div style="float:left; width:100%">
+        <div style="float:left; width:50%">
+            <label for="cognome" style="float:left;">Cognome (*)</label><br /><br />
+            <input name="cognome" class="input-insert" id="cognome"  />
+        </div>
+        <div style="float:left; width:50%">
+            <label for="nome" style="float:left;">Nome</label><br /><br />
+            <input name="nome" class="input-insert" id="nome"  />
+        </div>
+        <div style="float:left; width:50%">
+            <label for="cf" style="float:left;">Codice Fiscale (*)</label><br /><br />
+            <input name="cf" class="input-insert" id="cf"  />
+        </div>
+         <div style="float:left; width:50%">
+            <label for="matricola" style="float:left;">Matricola (*)</label><br /><br />
+            <input name="matricola" class="input-insert" id="matricola"  />
+        </div>
+        <div style="float:left; width:100%">
+            <span> * almeno uno obbligatorio</span>
+        </div>
+        <div style="float:left; width:100%; margin-top:35px">
+             <input type="submit" value="Cerca">
+        </div>
+    </div>
+    <div style="float:left; width:100%;margin-top:40px;">
+        {% if num > 0 %}
+            <span>Trovate {{ num }} Schede</span>
+            <br />
+            <br />
+            <table style="float:left; text-align:left; ">
+                <tr><th>Nome</th><th>Cognome</th><th>CF</th><th>Matricola</th><th>Info</th></tr>
+                {% for result in results %}
+                    <tr>
+                        <td>{{result['nome']}}</td>
+                        <td>{{result['cognome']}}</td>
+                        <td>{{result['cf']}}</td>
+                        <td>{{result['matricola']}}</td>
+                        <td><a class="action" href="{{ url_for('blog.scheda', id=result['id']) }}">Info</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% elif num==0 and get==0 %}
+             <span>Nessuna Scheda trovata</span>
+            <br />
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

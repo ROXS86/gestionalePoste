@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Scheda Personale{% endblock %}</h1>
+  <h4><a href="{{ url_for('blog.update', id=scheda['id']) }}">Modifica</a></h4>
+{% endblock %}
+
+{% block content %}
+<div>
+  <div style="width:100%; margin:10px;" >
+      <span style="width:50%; float:left"><label>Cognome: </label>{{ scheda['cognome'] }}</span>
+      <span style="width:50%; float:left"><label>Nome: </label>{{ scheda['nome'] }}</span>
+  </div>
+  <br />
+  <div style="width:100%; margin:10px;" >
+      <span style="width:50%; float:left"><label>Data Nascita: </label>{{ scheda['data_nascita'] }}</span>
+      <span style="width:50%; float:left"><label>Luogo Nascita: </label>{{ scheda['luogo_nascita'] }}</span>
+  </div>
+  <br />
+  <div style="width:100%; margin:10px;" >
+      <span style="width:33%; float:left"><label>Residenza: </label>{{ scheda['residenza'] }}</span>
+      <span style="width:33%; float:left"><label>Cap: </label>{{ scheda['residenza_cap'] }}</span>
+      <span style="width:33%; float:left"><label>Via/Piazza: </label>{{ scheda['residenza_via'] }}</span>
+  </div>
+  <br />
+  <div style="width:100%; margin:10px;" >
+      <span style="width:33%; float:left"><label>Domicilio: </label>{{ scheda['domicilio'] }}</span>
+      <span style="width:33%; float:left"><label>Cap: </label>{{ scheda['domicilio_cap'] }}</span>
+      <span style="width:33%; float:left"><label>Via/Piazza: </label>{{ scheda['domicilio_via'] }}</span>
+  </div>
+  <br />
+  <div style="width:100%; margin:10px;" >
+      <span style="width:50%; float:left"><label>Telefono: </label>{{ scheda['telefono'] }}</span>
+      <span style="width:50%; float:left"><label>Cell: </label>{{ scheda['cell'] }}</span>
+  </div>
+  <br />
+  <div style="width:100%; margin:10px;" >
+      <span style="width:33%; float:left"><label>Codice Fiscale: </label>{{ scheda['cf'] }}</span>
+      <span style="width:33%; float:left"><label>ASL: </label>{{ scheda['asl'] }}</span>
+      <span style="width:33%; float:left"><label>Matricola: </label>{{ scheda['matricola'] }}</span>
+  </div>
+  <br />
+  <div style="width:100%; margin:10px;" >
+      <span style="width:50%; float:left"><label>Data di Assunzione: </label>{{ scheda['data_assunzione'] }}</span>
+      <span style="width:50%; float:left"><label>Data di Fine: </label>{{ scheda['data_fine'] }}</span>
+  </div>
+  <br />
+  <br />
+  <h3>Titoli di studio</h3>
+  <div style="width:100%; margin:10px;" >
+      <span style="width:100%; float:left"><label>Titolo Uno: </label>{{ scheda['titolo_uno'] }}</span>
+      <span style="width:100%; float:left"><label>Titolo Due: </label>{{ scheda['titolo_due'] }}</span>
+      <span style="width:100%; float:left"><label>Titolo Tre: </label>{{ scheda['titolo_tre'] }}</span>
+      <span style="width:100%; float:left"><label>Titolo Quattro: </label>{{ scheda['titolo_quattro'] }}</span>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <h3>Mansioni</h3>
+  {% for mansione in mansioni %}
+      <div style="width:100%; margin:10px;" >
+          <span style="width:25%; float:left"><label>Descrizione: </label>{{ mansione['descrizione'] }}</span>
+          <span style="width:25%; float:left"><label>Ufficio: </label>{{ mansione['ufficio'] }}</span>
+          <span style="width:25%; float:left"><label>Dal: </label>{{ mansione['dal'] }}</span>
+          <span style="width:25%; float:left"><label>Al: </label>{{ mansione['al'] }}</span>
+      </div>
+      <br />
+  {% endfor %}
+  <br />
+  <h3>Corsi</h3>
+  {% for corso in corsi %}
+      <div style="width:100%; margin:10px;" >
+          <span style="width:33%; float:left"><label>Descrizione: </label>{{ corso['descrizione'] }}</span>
+          <span style="width:33%; float:left"><label>Dal: </label>{{ corso['dal'] }}</span>
+          <span style="width:33%; float:left"><label>Al: </label>{{ corso['al'] }}</span>
+          <span style="width:33%; float:left"><label>Valutazione: </label>{{ corso['valutazione'] }}</span>
+          <span style="width:33%; float:left"><label>Data Valutazione: </label>{{ corso['data_val'] }}</span>
+          <span style="width:33%; float:left"><label>Esito: </label>{{ corso['esito'] }}</span>
+      </div>
+      <br />
+     <br />
+  {% endfor %}
+</div>
+
+{% endblock %}

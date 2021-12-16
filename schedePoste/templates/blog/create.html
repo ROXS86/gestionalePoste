@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Scheda Personale{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div style="float:left; width:100%">
+        <div style="float:left; width:50%">
+            <label for="cognome" style="float:left;">Cognome</label><br /><br />
+            <input name="cognome" class="input-insert" id="cognome" value="{{ request.form['cognome'] }}" required>
+        </div>
+        <div style="float:left; width:50%">
+            <label for="nome" style="float:left;">Nome</label><br /><br />
+            <input name="nome" id="nome" class="input-insert" value="{{ request.form['nome'] }}" required>
+        </div>
+        <div style="float:left; width:50%">
+            <label for="data_nascita" style="float:left">Data di Nascita</label><br /><br />
+            <input name="data_nascita" class="input-insert" id="data_nascita" value="{{ request.form['data_nascita'] }}" placeholder="dd-mm-YYYY"required>
+        </div>
+         <div style="float:left; width:50%">
+            <label for="luogo_nascita" style="float:left;">Luogo Nascita</label><br /><br />
+            <input name="luogo_nascita" class="input-insert" id="luogo_nascita" value="{{ request.form['luogo_nascita'] }}" required>
+        </div>
+        <div style="float:left; width:33%">
+             <label for="residenza" style="float:left;">Residenza</label><br /><br />
+            <input name="residenza" id="residenza" class="input-insert" value="{{ request.form['residenza'] }}" required>
+        </div>
+         <div style="float:left; width:33%">
+             <label for="residenza_cap" style="float:left;">Residenza Cap</label><br /><br />
+    <input name="residenza_cap" id="residenza_cap" class="input-insert" value="{{ request.form['residenza_cap'] }}" required>
+        </div>
+         <div style="float:left; width:33%">
+             <label for="residenza_via" style="float:left;">Residenza Via</label><br /><br />
+    <input name="residenza_via" id="residenza_via" class="input-insert" value="{{ request.form['residenza_via'] }}" required>
+        </div>
+        <div style="float:left; width:33%">
+             <label for="domicilio" style="float:left;">Domicilio</label><br /><br />
+            <input name="domicilio" id="domicilio" class="input-insert" value="{{ request.form['domicilio'] }}" >
+        </div>
+        <div style="float:left; width:33%">
+            <label for="domicilio_cap" style="float:left;">Domicilio Cap</label><br /><br />
+            <input name="domicilio_cap" id="domicilio_cap" class="input-insert" value="{{ request.form['domicilio_cap'] }}" >
+        </div>
+        <div style="float:left; width:33%">
+             <label for="domicilio_via" style="float:left;">Domicilio Via</label><br /><br />
+            <input name="domicilio_via" id="domicilio_via" class="input-insert" value="{{ request.form['domicilio_via'] }}" >
+        </div>
+         <div style="float:left; width:50%">
+            <label for="telefono" style="float:left;">Telefono</label><br /><br />
+             <input name="telefono" id="telefono" class="input-insert"  value="{{ request.form['telefono'] }}" >
+        </div>
+         <div style="float:left; width:50%">
+             <label for="cell" style="float:left;">Cellulare</label><br /><br />
+            <input name="cell" id="cell"  class="input-insert" value="{{ request.form['cell'] }}" >
+        </div>
+        <div style="float:left; width:33%">
+            <label for="cf" style="float:left;">CF</label><br /><br />
+            <input name="cf" id="cf" class="input-insert" value="{{ request.form['cf'] }}" >
+        </div>
+        <div style="float:left; width:33%">
+            <label for="asl" style="float:left;">ASL</label><br /><br />
+            <input name="asl" id="asl" class="input-insert" value="{{ request.form['asl'] }}" >
+        </div>
+        <div style="float:left; width:33%">
+            <label for="matricola" style="float:left;">Matricola</label><br /><br />
+            <input name="matricola" class="input-insert" id="matricola" value="{{ request.form['matricola'] }}" required>
+        </div>
+        <div style="float:left; width:50%">
+            <label for="data_assunzione" style="float:left;">Data di Assunzione</label><br /><br />
+            <input name="data_assunzione" class="input-insert" id="data_assunzione" value="{{ request.form['data_assunzione'] }}" placeholder="dd-mm-YYYY"required>
+        </div>
+        <div style="float:left; width:50%">
+              <label for="data_fine" style="float:left;">Data di Fine</label><br /><br />
+              <input name="data_fine" class="input-insert" id="data_fine" value="{{ request.form['data_fine'] }}" placeholder="dd-mm-YYYY">
+        </div>
+
+      </div>
+
+    <hr>
+    <label>Titoli di studio</label>
+    <br />
+    <label for="titolo_uno">Titolo Uno</label>
+    <input name="titolo_uno" id="titolo_uno" value="{{ request.form['titolo_uno'] }}">
+
+    <label for="titolo_due">Titolo Due</label>
+    <input name="titolo_due" id="titolo_due" value="{{ request.form['titolo_due'] }}">
+
+    <label for="titolo_tre">Titolo Tre</label>
+    <input name="titolo_tre" id="titolo_tre" value="{{ request.form['titolo_tre'] }}">
+
+    <label for="titolo_quattro">Titolo Quattro</label>
+    <input name="titolo_quattro" id="titolo_quattro" value="{{ request.form['titolo_quattro'] }}">
+    <br /><br />
+
+    <input type="button"  style="width: 150px;" value="aggiungi Mansione" id="mansione-add">
+    <div style="float:left; width:100%;margin-top:20px" id="mansioni">
+
+
+    </div>
+
+      <input type="button"  style="width: 150px;" value="aggiungi Corsi" id="corso-add">
+    <div style="float:left; width:100%;margin-top:20px" id="corsi">
+
+
+    </div>
+
+    <br /><br />
+    <input type="submit" value="Salva">
+  </form>
+  <script src="{{url_for('static', filename='jquery-3.3.1.min.js')}}"></script>
+
+    <script>
+		$(document).ready(function() {
+			$("#mansione-add").click(function() {
+                $( "#mansioni" ).append("<div style='float:left; width:25%'><label for='descrizione_m' style='float:left;'>Descrizione</label><br /><br /><input name='descrizione_m[]' id='descrizione_m' class='input-insert' value='{{ request.form['descrizione_m'] }}' required></div><div style='float:left; width:25%'><label for='ufficio_m' style='float:left;'>Ufficio di Applicazione</label><br /><br /><input name='ufficio_m[]' class='input-insert' id='ufficio_m' value='{{ request.form['ufficio_m'] }}' required></div><div style='float:left; width:25%'><label for='dal_m' style='float:left;'>Dal</label><br /><br /><input name='dal_m[]' class='input-insert' id='dal_m' value='{{ request.form['dal_m'] }}' placeholder='dd-mm-YYYY'required></div><div style='float:left; width:25%'><label for='al_m' style='float:left;'>Al</label><br /><br /><input name='al_m[]' class='input-insert' id='al_m' value='{{ request.form['al_m'] }}' placeholder='dd-mm-YYYY'></div>");
+
+			});
+		});
+	</script>
+
+    <script>
+		$(document).ready(function() {
+			$("#corso-add").click(function() {
+                $( "#corsi" ).append("<div style='float:left; width:30%'><label for='descrizione_cc' style='float:left;'>Descrizione</label><br /><br /><input name='descrizione_cc[]' id='descrizione_cc' class='input-insert' value='{{ request.form['descrizione_cc'] }}' required></div><div style='float:left; width:30%'><label for='dal_cc' style='float:left;'>Dal</label><br /><br /><input name='dal_cc[]' class='input-insert' id='dal_cc' value='{{ request.form['dal_cc'] }}' placeholder='dd-mm-YYYY' required></div><div style='float:left; width:30%'><label for='al_cc' style='float:left;'>Al</label><br /><br /><input name='al_cc[]' class='input-insert' id='al_cc' value='{{ request.form['al_cc'] }}' placeholder='dd-mm-YYYY'></div><div style='float:left; width:30%'><label for='valutazione' style='float:left;'>Valutazione</label><br /><br /><input name='valutazione[]' class='input-insert' id='valutazione' value='{{ request.form['valutazione'] }}'></div><div style='float:left; width:30%'><label for='data_valutazione' style='float:left;'>Data Valutazione</label><br /><br /><input name='data_valutazione[]' class='input-insert' id='data_valutazione' value='{{ request.form['data_valutazione'] }}' placeholder='dd-mm-YYYY'></div><div style='float:left; width:30%'><label for='esito' style='float:left;'>Esito</label><br /><br /><input name='esito[]' class='input-insert' id='esito' value='{{ request.form['esito'] }}' required></div>");
+
+			});
+		});
+	</script>
+{% endblock %}
